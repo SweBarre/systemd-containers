@@ -35,6 +35,19 @@ jobs:
           - tag: 'ubuntu-22.04'
             dockerfile: 'Dockerfile.ubuntu-22.04'
             platforms: 'linux/amd64,linux/arm64'
+          - tag: 'rockylinux-8'
+            dockerfile: 'Dockerfile.rockylinux-8'
+            platforms: 'linux/amd64,linux/arm64'
+          - tag: 'rockylinux-9'
+            dockerfile: 'Dockerfile.rockylinux-9'
+            platforms: 'linux/amd64,linux/arm64'
+          - tag: 'tumbleweed'
+            dockerfile: 'Dockerfile.tumbleweed'
+            platforms: 'linux/amd64,linux/arm64'
+
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  #v4.2.2
     steps:
       - name: Checkout the codebase
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  #v4.2.2

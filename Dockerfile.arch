@@ -1,0 +1,19 @@
+FROM archlinux:latest
+
+LABEL maintainer='Jonas Forsberg'
+
+RUN pacman -Syu --noconfirm sudo systemd python && \
+    pacman -Scc --noconfirm && \
+    rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync /var/log/pacman.log
+
+RUN find /etc/systemd/system \
+    /lib/systemd/system \
+    -path '*.wants/*' \
+    -not -name '*journald*' \
+    -not -name '*systemd-tmpfiles*' \
+    -not -name '*systemd-user-sessions*' \
+    -print0 | xargs -0 rm -vf
+
+VOLUME [ "/sys/fs/cgroup" ]
+
+ENTRYPOINT [ "/usr/sbin/init" ]
