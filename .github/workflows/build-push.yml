@@ -70,5 +70,5 @@ jobs:
           file: '${{ matrix.dockerfile }}'
           platforms: '${{ matrix.platforms }}'
           push: ${{ github.event_name != 'pull_request' }}
-          tags: 'https://ghcr.io/${{ github.repository }}:${{ matrix.tag }}'
+          tags: 'ghcr.io/${{ github.repository }}:${{ matrix.tag }}'
 
