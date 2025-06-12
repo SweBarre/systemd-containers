@@ -70,5 +70,5 @@ jobs:
           file: '${{ matrix.dockerfile }}'
           platforms: '${{ matrix.platforms }}'
           push: ${{ github.event_name != 'pull_request' }}
-          tags: 'ghcr.io/${{ github.repository_owner }}/systemd-containers:${{ matrix.tag }}'
+          tags: 'ghcr.io/swebarre/systemd-containers:${{ matrix.tag }}'
 
