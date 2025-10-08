@@ -1,0 +1,16 @@
+FROM opensuse/tumbleweed
+
+LABEL maintainer='Jonas Forsberg'
+
+RUN zypper refresh && \
+    zypper --non-interactive install --no-recommends \
+        bash \
+        curl \
+        jq \
+        kubernetes-client && \
+    # Clean up to reduce image size
+    zypper clean --all && \
+    rm -rf /var/log/* /var/cache/* /tmp/*
+
+# Set bash as the default shell
+CMD ["/bin/bash"]

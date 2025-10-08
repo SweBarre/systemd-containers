@@ -43,6 +43,9 @@ jobs:
           - tag: 'tumbleweed'
             dockerfile: 'Dockerfile.tumbleweed'
             platforms: 'linux/amd64,linux/arm64'
+          - tag: 'toolbox'
+            dockerfile: 'Dockerfile.toolbox'
+            platforms: 'linux/amd64,linux/arm64'
 
     steps:
       - name: Checkout the codebase
